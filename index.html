@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sofia+Sans:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <div id="mslist">
+            <fieldset>
+                <h2 class="fs-title"> Mis Cursos de Platzi💚</h2>
+                <input class="input" type="text" placeholder="Titulo del curso" v-model="title" />
+                <input class="input" type="number" placeholder="Horas totales del curso" v-model="time" />
+                <button class="action-button" @click="addCourse">GUARDAR</button><br>
+                <div class="cursos">
+                    <hr>
+                    <h3 class="fs-title">LISTA DE CURSOS</h3>
+                    <p class="red" v-show="!courses.length"><img src="danger-svgrepo-com.svg" width="30px" height="30px" class="img-text"> Aún no has realizado cursos</p>
+                    <div v-show="courses.length">
+                        <ol>
+                            <li v-for="c in courses">
+                                <span>{{ c.title }} - {{ c.time }} hrs.</span>
+                            </li>
+                        </ol>
+                        <hr>
+                        <br>
+                        <p>
+                            Llevo <strong>{{ totalTime }}</strong> aprendiendo en Platzi.
+                            <b>#NuncaParesDeAprender💚</b>
+                        </p>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
